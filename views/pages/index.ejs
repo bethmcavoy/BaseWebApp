@@ -1,26 +1,33 @@
 <html lang="en">
 <head>
     <% include ../partials/head %>
-</head>
+var express = require('express');
+var app = express();
 
-<body>
+app.set('port', (process.env.PORT || 5000));
 
-  <!-- the classes 'page-header' and 'btn btn-default' create bootstrap components.  -->
-  <!-- Check out more components here: http://getbootstrap.com/components/ -->
-  <div class="page-header">
-    <h1>YOYO web apps are so cool</h1>
-  </div>
+app.use(express.static(__dirname + '/public'));
 
-  <p id="demo">
-    This is me testing out a lil html file
-  </p>
+// views is directory for all template files
+app.set('views', __dirname + '/views');
+app.set('view engine', 'ejs');
 
-  <button class="btn btn-default" type="button" onclick="myFunction()">
-    Try it
-  </button>
+app.get('/', function(request, response) {
+  response.render('pages/index');
+});
 
-  <div id="doge-image"/>
+app.get('/about', function(request, response) {
+  response.render('pages/about');
+});
 
-</body>
+app.get('/projects', function(request, response) {
+  response.render('pages/projects');
+});
 
-</html>
+app.get('/contact', function(request, response) {
+  response.render('pages/contact');
+});
+
+app.listen(app.get('port'), function() {
+  console.log('Node app is running on port', app.get('port'));
+});
