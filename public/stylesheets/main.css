@@ -10,16 +10,15 @@ h1 {
 }
 
 h4 {
-  color: #b5b5b5;
+  color: #add8e6;
+}
+
+.header-container-wrapper{
+background-color: #add8e6;
 }
 
 .page-header {
   text-align: center;
-}
-
-.tina-gif {
-  text-align: center;
-  margin: 50px 0;
 }
 
 .queen-of-computers {
