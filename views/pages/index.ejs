@@ -1,33 +1,29 @@
+
 <html lang="en">
 <head>
     <% include ../partials/head %>
-var express = require('express');
-var app = express();
+</head>
+<body class="container">
 
-app.set('port', (process.env.PORT || 5000));
+  <header>
+    <% include ../partials/navbar %>
+  </header>
 
-app.use(express.static(__dirname + '/public'));
+  <main>
+    <div class="jumbotron">
+      <h1>Talia Swartz</h1>
+      <p>Welcome to my personal website, please send all donations in units of $100 to my Venmo - @talia-swartz</p>
+      <p><a class="btn btn-primary btn-lg" href="https://github.com/zsobin/PersonalWebApp" target="_blank" role="button">See the repo</a></p>
+    </div>
+    <div class="tina-gif">
+      <iframe src="https://media.giphy.com/media/3ohzdG81Z0pAs3ExY4/giphy.gif" width="480" height="250" frameBorder="0"  allowFullScreen></iframe>
+      <p>
+        <a href="https://giphy.com/gifs/3ohzdG81Z0pAs3ExY4">
+          via GIPHY
+        </a>
+      </p>
+    </div>
+  </main>
 
-// views is directory for all template files
-app.set('views', __dirname + '/views');
-app.set('view engine', 'ejs');
-
-app.get('/', function(request, response) {
-  response.render('pages/index');
-});
-
-app.get('/about', function(request, response) {
-  response.render('pages/about');
-});
-
-app.get('/projects', function(request, response) {
-  response.render('pages/projects');
-});
-
-app.get('/contact', function(request, response) {
-  response.render('pages/contact');
-});
-
-app.listen(app.get('port'), function() {
-  console.log('Node app is running on port', app.get('port'));
-});
+</body>
+</html>
